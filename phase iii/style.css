@@ -1,0 +1,275 @@
+/* ======================================================
+   LIGHT MODE (DEFAULT)
+====================================================== */
+:root {
+  --bg: #f7fafc;
+  --text: #1a202c;
+  --card: #ffffff;
+  --border: #dddddd;
+}
+
+/* ======================================================
+   AUTO DARK MODE (from OS)
+====================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #ffffff;
+    --card: #111111;
+    --border: #333333;
+  }
+}
+
+/* ======================================================
+   MANUAL FULL DARK MODE (checkbox)
+====================================================== */
+
+#theme-toggle {
+  display: none;
+}
+
+/* Toggle Switch Container */
+.theme-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 55px;
+  height: 28px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+/* Sun icon (default) */
+.theme-btn::before {
+  content: "☀️";
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Sliding circle */
+.theme-btn::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--text);
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+/* DARK MODE ACTIVATED */
+#theme-toggle:checked + .theme-btn {
+  background: #000000;
+  border-color: #333;
+}
+
+/* Moon icon in dark mode */
+#theme-toggle:checked + .theme-btn::before {
+  content: "🌙";
+  color: #ffffff;
+}
+
+/* Move slider to the right */
+#theme-toggle:checked + .theme-btn::after {
+  right: 24px;
+  background: #ffffff;
+}
+
+/* Override colors globally */
+#theme-toggle:checked ~ .theme-wrapper {
+  --bg: #000000 !important;
+  --text: #ffffff !important;
+  --card: #111111 !important;
+  --border: #333333 !important;
+}
+
+/* Smooth transitions */
+.theme-wrapper, 
+.theme-wrapper * {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease;
+}
+
+/* ======================================================
+   GLOBAL BASE STYLES
+====================================================== */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.theme-wrapper {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* NAVIGATION */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* MOBILE MENU */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* MOBILE NAV BEHAVIOR */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav ul {
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav ul {
+    display: flex;
+  }
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 40px 20px;
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+
+.profile-img {
+  width: 260px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 70%;
+  }
+}
+
+/* SECTIONS */
+.section {
+  padding: 40px 20px;
+}
+
+/* SKILLS GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.skill-card {
+  background: var(--card);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+/* RESPONSIVE SKILLS */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--card);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* FOOTER */
+.footer {
+  padding: 20px;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}

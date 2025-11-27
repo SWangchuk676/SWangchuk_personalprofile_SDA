@@ -1,0 +1,178 @@
+/* === Reset & Basics === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Libre Franklin", Arial, sans-serif;
+  background: linear-gradient(180deg, #d6e21a 0%, #0f6ea8 50%, #a1461b 100%);
+  color: #0b1a1a;
+  padding: 40px;
+}
+
+/* === Page structure === */
+.page-frame {
+  display: flex;
+  justify-content: center;
+}
+.resume-card {
+  width: 900px;
+  background: #fffefb;
+  border: 6px solid #0a75b0;
+  border-radius: 6px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+
+/* === Sidebar === */
+.sidebar {
+  background: #fdfdfd;
+  padding: 36px 28px;
+}
+.portrait-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.portrait {
+   width: 200px;           
+  height: 200px;
+  border-radius: 50%;     
+  object-fit: cover;      
+  object-position: center;
+  border: 3px solid #fff; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.portrait-stamp {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #7a7a7a;
+}
+.sidebar h4 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 14px;
+}
+.skills ul {
+  list-style: none;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #0b1a1a;
+}
+.skills li::before {
+  content: "• ";
+  color: #0a75b0;
+}
+.contact-compact .email {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0a75b0;
+}
+.socials {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+.icon {
+  background: rgba(10,117,176,0.1);
+  color: #0a75b0;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* === Main content === */
+.content {
+  padding: 40px 56px;
+}
+.institution {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #9aa1a6;
+}
+.name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 0.95;
+  color: #08363e;
+}
+.name span {
+  display: block;
+}
+.content h3 {
+  font-size: 18px;
+  color: #08363e;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+.content h3::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: #0a75b0;
+  margin-top: 6px;
+  border-radius: 4px;
+}
+.about p, .hobbies p, .education p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+}
+.exp-item {
+  margin-top: 10px;
+}
+.exp-item h4 {
+  font-size: 15px;
+  color: #0b3e44;
+}
+.exp-meta {
+  font-size: 13px;
+  color: #7b8a8b;
+  margin-bottom: 6px;
+}
+.exp-item ul {
+  list-style: disc;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* === Footer === */
+.footer {
+  margin-top: 18px;
+  background: #f7f7f7;
+  border-top: 1px solid #eee;
+  text-align: center;
+  padding: 28px;
+}
+.footer h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #08363e;
+  margin-bottom: 8px;
+}
+.big-email {
+  display: inline-block;
+  color: #0a75b0;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.footer-icons a {
+  color: #0a75b0;
+  margin: 0 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* === Wide screen adjustment === */
+@media (min-width: 1200px) {
+  .resume-card {
+    width: 1100px;
+    grid-template-columns: 300px 1fr;
+  }
+  .content { padding: 48px 64px; }
+  .name { font-size: 56px; }
+}
